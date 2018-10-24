@@ -1,0 +1,25 @@
+{
+  "name": "imooc-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jairs/imooc-node.git"
+  },
+  "author": "jarisMA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jairs/imooc-node/issues"
+  },
+  "homepage": "https://github.com/Jairs/imooc-node#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "jade": "^1.11.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.6"
+  }
+}
