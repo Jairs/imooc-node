@@ -1,7 +1,7 @@
 {
   "name": "imooc-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "movie",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,9 @@
     "jade": "^1.11.0",
     "moment": "^2.22.2",
     "mongoose": "^5.3.6"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "movie"
+  ]
 }

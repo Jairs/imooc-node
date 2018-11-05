@@ -1,0 +1,25 @@
+{
+  "name": "imooc-node",
+  "description": "movie",
+  "main": "app.js",
+  "authors": [
+    "jarisMA"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "movie"
+  ],
+  "homepage": "https://github.com/Jairs/imooc-node",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  }
+}
