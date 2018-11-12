@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');//用来格式化表单数据
 var mongoose = require('mongoose');
 var _ = require('underscore');//用来替换数据
 var Movie = require('./models/movie');
-
+var User = require('./models/user');
 var port = process.env.PORT || 3000;
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
@@ -65,6 +65,12 @@ app.get('/', function(req, res) {
         }
     });
     
+});
+
+//signup
+app.post('/user/signup',function(req,res){
+    var _user = req.body.user;
+    console.log(_user);
 });
 
 //detail page
