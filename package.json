@@ -17,12 +17,18 @@
   },
   "homepage": "https://github.com/Jairs/imooc-node#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
     "jade": "^1.11.0",
     "moment": "^2.22.2",
     "mongoose": "^5.3.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-nodemon": "^0.5.4",
+    "grunt-contrib-watch": "^1.1.0"
+  },
   "keywords": [
     "movie"
   ]
