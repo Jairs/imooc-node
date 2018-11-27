@@ -27,7 +27,7 @@ console.log('imooc started on port ' + port);
 //index page
 app.get('/', function(req, res) {
     Movie.fetch(function(err, movies) {
-        console.log(movies);
+        // console.log(movies);
         if (err) {
             console.log(err);
         } else {
@@ -91,6 +91,38 @@ app.post('/user/signup', function(req, res) {
     });
 
 });
+
+//signin
+app.post('/user/signin', function(req, res) {
+    var _user = req.body.user;
+    var name = _user.name;
+    var password = _user.password;
+    console.log(_user);
+    User.findOne({
+        name: name
+    }, function(err, user) {
+        if (err) {
+            console.log(err);
+        }
+        if (!user) {
+            return res.redirect('/');
+        }
+
+        user.comparePassword(password, function(err, isMatch) {
+            if (err) {
+                console.log(err);
+            }
+            if (isMatch) {
+                console.log('Password is matched!');
+                return res.redirect('/');
+            } else {
+                console.log('Password is not matched!');
+                // return res.redirect('/');
+            }
+        });
+    });
+});
+
 //userList page
 app.get('/admin/userList', function(req, res) {
     User.fetch(function(err, users) {
