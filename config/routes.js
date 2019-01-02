@@ -20,7 +20,7 @@ module.exports = function(app) {
     app.get('/signin', User.showSignin);
     app.get('/signup', User.showSignup);
     app.get('/logout', User.logout);
-    app.get('/admin/userList', User.list);
+    app.get('/admin/userList', User.signinRequired, User.adminRequired, User.list);
 
     //Movie
     app.get('/movie/:id', Movie.detail);
