@@ -1,6 +1,12 @@
 var User = require('../models/user');
 
 //signup
+exports.showSignup = function(req, res) {
+    res.render('signup', {
+        title: '注册页面'
+    });
+}
+
 exports.signup = function(req, res) {
     var _user = req.body.user; //req.param('user);所有请求都查询一遍出结果（先在params中查找，再到body，最后query）
     // /user/signup/:userid=>获取userid:req.params.userid
@@ -12,20 +18,26 @@ exports.signup = function(req, res) {
         }
         if (user) {
             console.log('重名');
-            return res.redirect('/');
+            return res.redirect('/signin');
         } else {
             var user = new User(_user);
             user.save(function(err, user) {
                 if (err) {
                     console.log(err);
                 }
-                res.redirect('/admin/userList');
+                res.redirect('/');
             });
         }
     });
 }
 
 //signin
+exports.showSignin = function(req, res) {
+    res.render('signin', {
+        title: '登录页面'
+    });
+}
+
 exports.signin = function(req, res) {
     var _user = req.body.user;
     var name = _user.name;
@@ -39,7 +51,7 @@ exports.signin = function(req, res) {
         }
         if (!user) {
             console.log('无此用户!');
-            return res.redirect('/');
+            return res.redirect('/signup');
         }
 
         user.comparePassword(password, function(err, isMatch) {
@@ -53,7 +65,7 @@ exports.signin = function(req, res) {
                 return res.redirect('/');
             } else {
                 console.log('Password is not matched!');
-                // return res.redirect('/');
+                return res.redirect('/signin');
             }
         });
     });
