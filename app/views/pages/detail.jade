@@ -5,6 +5,26 @@ block content
         .row 
             .col-md-7
                 embed(src="#{movie.flash}",allowFullScreen="true",quality="high",width="100%",height="600",align="middle",type="application/x-shockwave-flash")
+                .panel.panel-default
+                    .panel-heading
+                        h3 评论区
+                    .panel-body
+                        ul.media-list
+                            each item in comments
+                                li.media
+                                    .pull-left
+                                        img.media-object(src="data:image/jpeg;base64,/9j/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIACgAKAMBIgACEQEDEQH/xAGiAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+gEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLEQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AO41vSl1SyMXCuDkNjOK8suYwt0baXcZlY7cISx57V7G5OMg/hXASxzW+rm4eRIImkMe4clueAPQfpUOCmyG2jmbyC7jjj82GZTzjIwD+FZkk11GzJKHBdQyqT+v869F1OKOXZdRzRo0XJDAbQOprh9YhbU5hJ5axlR+7dEwHzyM9OKmdBRBNvUoSTNKMvcx+WB90yf06/pUO+H/AJ7Rfmf/AImrMOkX1znH3VPPy7Qf8an/ALAu/wDnlD/30f8AGs3TS6E3Z6/4ivHsdJZ4zteRggI6jNeUX2qyFsCR8gYzu/St/wAX+Kkkaa1lIBibCKh5HOCfr/hXLaa+kXupeVfXTxRf3lwc8fpW97I0iruw0atcEBTKdvcVeiv1ltRA6hpN5YOTU+taV4bgs2ks9SkEo+6hw+4/h0+tcoL+KGVY1dt2eXA4A9vU0czZcocu56bpUv2q3bahLoRk46+n9aveVL/zzP8A3zWD4A8S2ltdS25VwZ0G8MSCrLk/iMZr0H/hIbP1b8zSdRR0Znynlc+gxXbs0wUyHq5Xkn61Qk8NRGNdigFh19DXUD7xqD+BPqalSbKscoPDjYOXIOfwrodP0C0OkxyHcXHytj/P0qRvuyfWtLS/+QO3+9/UVPOyrGd/ZNzb7HQ4/hEikZHoPxxT/s2o/wDPZv8Avqttv+PP/ga/yNRUo1G0KSsz/9k=")
+                                    .media-body
+                                        h4.media-heading #{item.from.name}
+                                        p #{item.content}
+                                hr
+
+                form(action="/user/comment" method="POST")
+                    input(type="hidden",name="comment[movie]",value="#{movie._id}")
+                    input(type="hidden",name="comment[from]",value="#{user._id}")
+                    .form-group
+                        textarea.form-control(name="comment[content]",row="3")
+                    button.btn.btn-primary(type="submit") 提交
             .col-md-5
                 dl.dl-horizontal
                     dt 电影名字
