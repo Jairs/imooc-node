@@ -19,7 +19,7 @@ exports.save = function(req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.redirect('/admin/categoryList');
+            res.redirect('/admin/category/list');
         }
     });
 
@@ -32,7 +32,7 @@ exports.list = function(req, res) {
             console.log(err);
         } else {
             console.log(categories);
-            res.render('list', {
+            res.render('categoryList', {
                 title: 'imooc 分类列表页',
                 categories: categories
             });

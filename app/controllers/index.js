@@ -1,3 +1,4 @@
+var Movie = require('../models/movie')
 var Category = require('../models/category')
 
 //index page
